@@ -1,0 +1,136 @@
+
+
+
+.product-card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+    max-width: 420px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    background: linear-gradient(45deg, #78d2f3, #77a9d0);
+    background-size: 400% 400%;
+    animation: bg-animate 5s ease-in-out infinite;
+    margin-bottom: 40px;
+}
+
+@keyframes bg-animate {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.product-card:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    transform: translateY(-8px);
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.product-image {
+    height: 250px;
+    overflow: hidden;
+}
+
+.product-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    border-radius: 8px;
+}
+
+.product-image img:hover {
+    transform: scale(1.1);
+
+}
+
+.product-info {
+    padding: 10px;
+}
+
+.product-info h2 {
+    font-size: 1.4rem;
+    margin-bottom: 8px;
+    color: black;
+}
+
+.product-price {
+    font-size: 1.8rem;
+    color: black !important;
+    font-weight: bold;
+}
+
+.product-data {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0;
+    border: solid 2px rgb(207, 133, 22);
+    background-color: rgb(207, 133, 22);
+    border-radius: 5px;
+    padding: 0;
+    width: auto;
+    height: 30px;
+    font-weight: 500;
+
+}
+
+.product-data:hover {
+    transform: perspective(1000px) rotateY(15deg);
+    transition: transform 0.5s;
+    cursor: pointer;
+}
+.product-data-category {
+    font-size: 1rem;
+    color: black;
+    text-align: center;
+    width: 50%;
+    border: solid 2px black;
+    margin: 0;
+    border-radius: 2px;
+    padding: 5px;
+}
+
+.product-data-year {
+    font-size: 1rem;
+    color: black;
+    text-align: center;
+    width: 50%;
+    border: solid 2px black;
+    margin: 0;
+    border-radius: 2px;
+    padding: 5px;
+}
+
+.product-description {
+    font-size: 1rem;
+    color: #00506b;
+    text-align: center;
+}
+
+.buy-button {
+    background-color: #706201;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s, transform 0.2s;
+    }
+
+.buy-button:hover {
+    background-color:  #d7c608;
+    color: white;
+    transform: scale(1.05);
+    box-shadow: 5px 4px 8px rgba(0, 0, 0, 0.5);
+    transform: scale(1.05);
+    cursor: pointer;
+}
