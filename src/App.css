@@ -5,6 +5,7 @@
   background-color: black;
   height: 100%;
   width: 100%;
+  min-width: 10%;
 }
 
 
@@ -27,12 +28,13 @@
   z-index: 2;
   text-align: center;
   background-color: black;
-  gap: 40px;
+  gap: 20px;
 }
 
 .App-header img {
-  width: 180px;
-  height: 180px;
+  width: 150px;
+  margin-top: 20px;
+  height: 100px;
   object-fit: cover;
   border-radius: 8px;
 }

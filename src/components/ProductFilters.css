@@ -1,0 +1,81 @@
+:root {
+    --primary-gradient: linear-gradient(135deg, #0675b5, #0536b4);
+    --primary-color: #0675b5;
+    --accent-color: #ff6f61;
+    --border-color: #000;
+    --hover-border: #7a2f2f;
+    --input-bg: #fff;
+    --option-bg: #fff;
+    --option-hover-bg: #ff6f61;
+    --option-hover-color: #fff;
+    --shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+    --shadow-hover: 0px 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.filters-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    background: var(--primary-gradient);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    margin-bottom: 25px;
+    transition: box-shadow 0.3s, background 0.3s;
+    width: 90%;
+    margin-top: 30px;
+
+}
+
+.filters:hover {
+    box-shadow: var(--shadow-hover);
+}
+
+.filters select,
+.filters input {
+    padding: 12px;
+    font-size: 1rem;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    font-style: italic;
+    background-color: rgb(149, 202, 255);
+    transition: border-color 0.3s, transform 0.2s;
+    min-width: 120px;
+    gap: 20px;
+    color: black;
+}
+
+.filters select option {
+    color: black;
+    background-color: rgb(149, 202, 255);
+    border: 3px solid var(--border-color);
+}
+
+.filters select option:hover,
+.filters select option:focus {
+    background-color: blue;
+    color: red;
+}
+
+.filters select:hover,
+.filters input:hover {
+    border-color: blueviolet;
+    transform: scale(1.05);
+}
+
+.filters select:focus,
+.filters input:focus {
+    outline: 1px solid blue;
+    border-color:blue;
+    box-shadow: 0px 0px 10px rgba(255, 111, 97, 0.5);
+}
+
+@media (max-width: 600px) {
+    .filters-container {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px;
+        width: 98%;
+    }
+}
