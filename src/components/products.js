@@ -24,7 +24,8 @@ export const products = [
 
   { image: '/img/MACAN.jpg', name: 'Porsche Macan', year: 2024, category: 'SUV', price: 62900, description: 'SUV compacto con motor turbo de 261 HP. Aceleración 0-100 km/h en 6.0s. Diseño deportivo y versátil.' },
 
-  { image: '/img/CayenneE-Hybrid.jpg', name: 'Porsche Cayenne E-Hybrid', year: 2024, category: 'SUV Híbrido', price: 97200, description: 'SUV híbrido con 463 HP. Aceleración 0-100 km/h en 4.9s. Autonomía eléctrica y eficiencia mejorada.' }
+  { image: '/img/CayenneE-Hybrid.jpg', name: 'Porsche Cayenne E-Hybrid', year: 2024, category: 'SUV Híbrido', price: 97200, description: 'SUV híbrido con 463 HP. Aceleración 0-100 km/h en 4.9s. Autonomía eléctrica y eficiencia mejorada.' },
+
+
+  
 ];
-
-
