@@ -13,37 +13,45 @@
 }
 
 .filters-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 40px;
-    background: var(--primary-gradient);
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: var(--shadow);
-    margin-bottom: 25px;
-    transition: box-shadow 0.3s, background 0.3s;
-    width: 90%;
-    margin-top: 30px;
-
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  padding: 2rem 2.5rem 1.5rem 2.5rem;
+  margin: 0 auto 2.5rem auto;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid #e2e8f0;
 }
 
-.filters:hover {
-    box-shadow: var(--shadow-hover);
+.filters-container h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 1.5rem;
+  letter-spacing: 1px;
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  width: 100%;
+  justify-content: center;
 }
 
 .filters select,
 .filters input {
-    padding: 12px;
-    font-size: 1rem;
-    border: 2px solid var(--border-color);
+    padding: 0.7rem 1.2rem;
     border-radius: 8px;
-    font-style: italic;
-    background-color: rgb(149, 202, 255);
-    transition: border-color 0.3s, transform 0.2s;
-    min-width: 120px;
-    gap: 20px;
-    color: black;
+    border: 1px solid #e2e8f0;
+    font-size: 1rem;
+    background: #f8fafc;
+    color: #222;
+    transition: border 0.2s;
+    min-width: 200px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.03);
 }
 
 .filters select option {
@@ -71,11 +79,24 @@
     box-shadow: 0px 0px 10px rgba(255, 111, 97, 0.5);
 }
 
+@media (max-width: 900px) {
+  .filters-container {
+    padding: 1.2rem 1rem 1rem 1rem;
+  }
+  .filters {
+    gap: 1rem;
+  }
+}
+
 @media (max-width: 600px) {
-    .filters-container {
-        flex-direction: column;
-        gap: 15px;
-        padding: 15px;
-        width: 98%;
-    }
+  .filters {
+    flex-direction: column;
+    gap: 0.8rem;
+    align-items: stretch;
+  }
+  .filters input,
+  .filters select {
+    min-width: 100%;
+    width: 100%;
+  }
 }

@@ -2,36 +2,60 @@ import React, { useState, useEffect } from "react";
 import './ProductFilters.css';
 
 function ProductFilters({ products, onFilter }) {
-  const [selectedYear, setSelectedYear] = useState('');
   const [maxPrice, setMaxPrice] = useState('');
+  const [minPrice, setMinPrice] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('');
+  const [search, setSearch] = useState('');
 
-  const years = [...new Set(products.map(p => p.year))].sort((a, b) => b - a);
+  // Extraer categorías únicas de los productos de la API
+  const categories = Array.from(new Set(products.map(p => p.category).filter(Boolean)));
 
-  const filteredProducts = products.filter(product => {
-    const matchYear = selectedYear ? product.year === Number(selectedYear) : true;
-    const matchMaxPrice = maxPrice ? product.price <= Number(maxPrice) : true;
-    const matchCategory = selectedCategory ? product.category === selectedCategory : true;
-    return matchYear && matchMaxPrice && matchCategory;
-  });
-
-  // Enviar los productos filtrados a `App.js`
   useEffect(() => {
+    const filteredProducts = products.filter(product => {
+      const price = Number(product.price);
+      const category = product.category;
+      const title = product.title;
+      const description = product.description;
+
+      const matchMaxPrice = maxPrice ? price <= Number(maxPrice) : true;
+      const matchMinPrice = minPrice ? price >= Number(minPrice) : true;
+      const matchCategory = selectedCategory ? category === selectedCategory : true;
+      const matchSearch = search ? (
+        (title && title.toLowerCase().includes(search.toLowerCase())) ||
+        (description && description.toLowerCase().includes(search.toLowerCase()))
+      ) : true;
+      return matchMaxPrice && matchMinPrice && matchCategory && matchSearch;
+    });
     onFilter(filteredProducts);
-  }, [selectedYear, maxPrice, selectedCategory]);
+  }, [maxPrice, minPrice, selectedCategory, search, products, onFilter]);
 
   return (
     <div className="filters-container">
       <h2>Filtrar Por</h2>
       <div className="filters">
-        <select value={selectedYear} onChange={e => setSelectedYear(e.target.value)}>
-          <option value="">Todos los años</option>
-          {years.map(year => <option key={year} value={year}>{year}</option>)}
-        </select>
-        <input type="number" placeholder="Precio máximo" value={maxPrice} onChange={e => setMaxPrice(e.target.value)} min="0" />
+        <input
+          type="text"
+          placeholder="Buscar por nombre o descripción"
+          value={search}
+          onChange={e => setSearch(e.target.value)}
+        />
+        <input
+          type="number"
+          placeholder="Precio mínimo"
+          value={minPrice}
+          onChange={e => setMinPrice(e.target.value)}
+          min="0"
+        />
+        <input
+          type="number"
+          placeholder="Precio máximo"
+          value={maxPrice}
+          onChange={e => setMaxPrice(e.target.value)}
+          min="0"
+        />
         <select value={selectedCategory} onChange={e => setSelectedCategory(e.target.value)}>
           <option value="">Todas las categorías</option>
-          {Array.from(new Set(products.map(p => p.category))).map(cat => <option key={cat} value={cat}>{cat}</option>)}
+          {categories.map(cat => <option key={cat} value={cat}>{cat}</option>)}
         </select>
       </div>
     </div>
